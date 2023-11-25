@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 interface MenuItem {
+  id: number;
   name: string;
   icons: string;
 }
@@ -32,10 +33,10 @@ const Menu: React.FC<MenuProps> = ({ menu }) => {
         slidesPerView={5}
       >
         {menu?.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <div className="flex flex-col items-center text-center">
-              <Image alt={item?.name} src={item?.icons} />
-              <p className="text-xs font-medium leading-4 mt-1">{item?.name}</p>
+              <Image alt={item.name} src={item.icons} />
+              <p className="text-xs font-medium leading-4 mt-1">{item.name}</p>
             </div>
           </SwiperSlide>
         ))}
